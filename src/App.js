@@ -1,47 +1,31 @@
 import './App.css';
+import vseZbozi from './zbozi.js';
+import { useState } from 'react';
+
+let prvotniZbozi = Object.values(vseZbozi);
 
 function App() {
+  const [aktualniZbozi, setAktualniZbozi] = useState(prvotniZbozi);
+
   return (
     <>
       <h1>potraviny</h1>
       <ul>
-        <li key="0" className="predmet-seznamu">
-          <h3>Paprika červená</h3>
-          <img
-            className="obrazek-zbozi"
-            src={require("./img/Paprika_cervena.jpg")}
-            alt="čerstvá červená paprika na dřevěném prkénku"
+        {aktualniZbozi.map(zbozi => (
+          <li key={zbozi.id} className="predmet-seznamu">
+            <h3>{zbozi.name}</h3>
+            <img
+              className="obrazek-zbozi"
+              src={zbozi.src}
+              alt={zbozi.alt}
             />
-        </li>
-
-        <li key="1" className="predmet-seznamu">
-        <h3>Paprika žlutá</h3>
-        <img
-            className="obrazek-zbozi"
-            src={require("./img/Paprika_zluta.jpg")}
-            alt="čerstvá žlutá paprika na dřevěném prkénku"
-              
-            />
-        </li>
-
-        <li key="1" className="predmet-seznamu">
-        <h3>Paprika zelená</h3>
-        <img
-            className="obrazek-zbozi"
-            src={require("./img/Paprika_zelena.jpg")}
-            alt="čerstvá zelená paprika na dřevěném prkénku"
-              
-            />
-        </li>
-
-        <li key="3" className="predmet-seznamu">
-        <h3>Česnek</h3>
-        <img
-            className="obrazek-zbozi"
-            src={require("./img/Cesnek.jpg")}
-            alt="palice suchého česneku na dřevěném prkénku"
-            />
-        </li>
+            <button onClick={() => setAktualniZbozi(
+              aktualniZbozi.filter(z => z.id !== zbozi.id)
+            )}>
+              odebrat
+            </button>
+          </li>
+        ))}
       </ul>
     </>
   );
