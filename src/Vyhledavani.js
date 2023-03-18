@@ -3,7 +3,7 @@ export default function Vyhledavani({ vyraz, onHandleChange }) {
 
   return (
     <>
-      <form>
+      <div id="search-bar">
         <label>hledej: </label>
         <input
           id="vyhledavaci-pole"
@@ -12,7 +12,7 @@ export default function Vyhledavani({ vyraz, onHandleChange }) {
           value={vyraz}
           onChange={onHandleChange}
         />
-      </form>
+      </div>
     </>
   );
 }
