@@ -5,7 +5,11 @@ export default function FilteredList({ vyraz, zbozi }) {
     <ul>
       {vyraz !== '' && 
         zbozi.filter(
-          polozka => polozka.name.toLowerCase().startsWith(lowVyraz)
+          polozka => (
+            (polozka.name.toLowerCase().split(" ").some(
+              word => word.startsWith(lowVyraz)
+            )) || polozka.name.toLowerCase().startsWith(lowVyraz)
+          )
         )
         .map(z => (
           <li key={z.id} className="predmet-seznamu">
