@@ -1,7 +1,7 @@
 import './App.css';
-import Vyhledavani from './Vyhledavani.js';
-import FilteredList from './FilteredList.js';
-import Kosik from './Kosik.js';
+import Vyhledavani from './components/Vyhledavani.js';
+import FilteredList from './components/FilteredList.js';
+import Kosik from './components/Kosik.js';
 import vseZbozi from './zbozi.js';
 import { useState } from 'react';
 
