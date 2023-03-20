@@ -1,6 +1,7 @@
 import './App.css';
 import Vyhledavani from './Vyhledavani.js';
 import FilteredList from './FilteredList.js';
+import Kosik from './Kosik.js';
 import vseZbozi from './zbozi.js';
 import { useState } from 'react';
 
@@ -15,11 +16,18 @@ function App() {
 
   return (
     <>
-      <h1>potraviny</h1>
+      <header>
+        <h1>potraviny</h1>
+      </header>
 
-      <Vyhledavani vyraz={vyraz} onHandleChange={handleChange}/>
+      <main>
+        <div className="search-and-results">
+          <Vyhledavani vyraz={vyraz} onHandleChange={handleChange}/>
+          <FilteredList vyraz={vyraz} zbozi={seznamZbozi} />
+        </div>
 
-      <FilteredList vyraz={vyraz} zbozi={seznamZbozi} />
+        <Kosik />
+      </main>
     </>
   );
 }
