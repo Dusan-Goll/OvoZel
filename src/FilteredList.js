@@ -1,8 +1,10 @@
+import './FilteredList.css';
+
 export default function FilteredList({ vyraz, zbozi }) {
   let lowVyraz = vyraz.toLowerCase();
 
   return (
-    <ul>
+    <ul className="filtered-list">
       {vyraz !== '' && 
         zbozi.filter(
           polozka => (

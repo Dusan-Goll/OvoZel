@@ -1,3 +1,4 @@
+import './Vyhledavani.css';
 
 export default function Vyhledavani({ vyraz, onHandleChange }) {
 
