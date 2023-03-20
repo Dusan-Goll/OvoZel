@@ -1,6 +1,6 @@
 import './FilteredList.css';
 
-export default function FilteredList({ vyraz, zbozi }) {
+export default function FilteredList({ vyraz, zbozi, onUpdateKosik }) {
   let lowVyraz = vyraz.toLowerCase();
 
   return (
@@ -21,6 +21,7 @@ export default function FilteredList({ vyraz, zbozi }) {
               src={z.src}
               alt={z.alt}
             />
+            <button onClick={(e) => {onUpdateKosik(z);}}>+</button>
           </li>
         ))
       }

@@ -1,4 +1,21 @@
 .kosik {
   margin-top: 1rem;
   border: 2px dotted #000;
+  padding: 0.5rem;
+}
+
+.kosik-seznam {
+  border: 1px dashed #595913;
+}
+
+.kosik-seznam li {
+  padding: 0.5rem;
+}
+
+.kosik-seznam li h3 {
+  margin: 0.5rem;
+}
+
+.zbozi-v-kosiku {
+  background-color: #cece51;
 }
