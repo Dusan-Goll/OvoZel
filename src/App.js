@@ -24,33 +24,28 @@ function App() {
     } else {
       nextZboziKosik = zboziKosik;
     }
-
     setZboziKosik(nextZboziKosik);
   }
 
-  function handleIncreaseQuantity(name, quantity) {
+  function handleChangeQuantity(name, quantity, action) {
+
+    let newPocet;
+    if (action === '+') {
+      newPocet = quantity + 1;
+    } else if (action === '-' && quantity > 1) {
+      newPocet = quantity - 1;
+    } else {
+      newPocet = quantity;
+    }
+
     let nextZboziKosik = zboziKosik.map(zbozi => {
 
       if (zbozi.name === name) {
-        return {...zbozi, pocet: quantity + 1}
+        return {...zbozi, pocet: newPocet}
       } else {
         return zbozi;
       }
     });
-
-    setZboziKosik(nextZboziKosik);
-  }
-
-  function handleDecreaseQuantity(name, quantity) {
-    let nextZboziKosik = zboziKosik.map(zbozi => {
-
-      if (zbozi.name === name && quantity > 1) {
-        return {...zbozi, pocet: quantity - 1}
-      } else {
-        return zbozi;
-      }
-    });
-
     setZboziKosik(nextZboziKosik);
   }
 
@@ -58,7 +53,6 @@ function App() {
     let nextZboziKosik = zboziKosik.filter(
       zbozi => zbozi.name !== name
     );
-
     setZboziKosik(nextZboziKosik);
   }
 
@@ -80,8 +74,7 @@ function App() {
 
         <Kosik
           vKosiku={zboziKosik}
-          onIncreaseQuantity={handleIncreaseQuantity}
-          onDecreaseQuantity={handleDecreaseQuantity}
+          onChangeQuantity={handleChangeQuantity}
           onDiscardItem={handleDiscardItem}
         />
       </main>

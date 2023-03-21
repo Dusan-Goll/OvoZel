@@ -3,8 +3,7 @@ import './Kosik.css';
 
 export default function Kosik({
   vKosiku,
-  onIncreaseQuantity,
-  onDecreaseQuantity,
+  onChangeQuantity,
   onDiscardItem
 }) {
 
@@ -32,7 +31,7 @@ export default function Kosik({
                   <div className="controls">
                     <button
                       onClick={
-                        (e) => {onDecreaseQuantity(polozka.name, polozka.pocet)}
+                        (e) => {onChangeQuantity(polozka.name, polozka.pocet, '-')}
                       }
                     >-</button>
 
@@ -40,7 +39,7 @@ export default function Kosik({
 
                     <button
                       onClick={
-                        (e) => {onIncreaseQuantity(polozka.name, polozka.pocet)}
+                        (e) => {onChangeQuantity(polozka.name, polozka.pocet, '+')}
                       }
                     >
                       +
