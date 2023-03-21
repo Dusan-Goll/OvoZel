@@ -25,11 +25,12 @@
 .predmet-seznamu button {
   font-size: 1rem;
   margin: 0.4em;
-  background-color: #f1d72c;
+  background-color: #db190f;
+  color: #fbeeee;
   border: 1px solid #000;
   border-radius: 0.3em;
 }
 
 .predmet-seznamu button:active {
-  background-color: #564e1a;
+  background-color: #53130a;
 }

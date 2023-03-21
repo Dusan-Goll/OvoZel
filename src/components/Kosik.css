@@ -5,11 +5,13 @@
 }
 
 .kosik-seznam {
-  border: 1px dashed #595913;
+  padding-left: 0;
 }
 
 .kosik-seznam li {
+  border: 1px dashed #595913;
   padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 .kosik-seznam li h3 {
@@ -19,3 +21,31 @@
 .zbozi-v-kosiku {
   background-color: #cece51;
 }
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2rem;
+}
+
+.controls button, p {
+  height: 100%;
+}
+
+.controls p {
+  background-color: #ddddcf;
+  display: flex;
+  align-items: center;
+  margin: 0 0.3rem;
+  padding: 0 0.4rem;
+}
+
+.controls button {
+  background-color: #c8872a;
+  color: #442b0b;
+  font-weight: bolder;
+  font-size: 1rem;
+  margin: 0.2em;
+}
+

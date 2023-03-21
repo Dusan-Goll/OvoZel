@@ -1,6 +1,6 @@
 import './FilteredList.css';
 
-export default function FilteredList({ vyraz, zbozi, onUpdateKosik }) {
+export default function FilteredList({ vyraz, zbozi, onPridejDoKosiku }) {
   let lowVyraz = vyraz.toLowerCase();
 
   return (
@@ -21,7 +21,9 @@ export default function FilteredList({ vyraz, zbozi, onUpdateKosik }) {
               src={z.src}
               alt={z.alt}
             />
-            <button onClick={(e) => {onUpdateKosik(z);}}>+</button>
+            <button onClick={(e) => {onPridejDoKosiku(z)}}>
+              přidat do košíku
+            </button>
           </li>
         ))
       }

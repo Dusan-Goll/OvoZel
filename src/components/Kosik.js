@@ -1,8 +1,13 @@
 import './Kosik.css';
 // import { useState } from 'react';
 
-export default function Kosik({ vKosiku }) {
-  // const [obsahKosiku, setObsahKosiku] = useState(vKosiku);
+export default function Kosik({
+  vKosiku,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  onDiscardItem
+}) {
+
   let obsahKosiku = vKosiku;
 
   return (
@@ -23,7 +28,32 @@ export default function Kosik({ vKosiku }) {
                   src={polozka.src}
                   alt={polozka.alt}
                   />
-                  <p>pocet: {polozka.pocet}ks</p>
+
+                  <div className="controls">
+                    <button
+                      onClick={
+                        (e) => {onDecreaseQuantity(polozka.name, polozka.pocet)}
+                      }
+                    >-</button>
+
+                    <p>{polozka.pocet}ks</p>
+
+                    <button
+                      onClick={
+                        (e) => {onIncreaseQuantity(polozka.name, polozka.pocet)}
+                      }
+                    >
+                      +
+                    </button>
+
+                    <button
+                      onClick={
+                        (e) => {onDiscardItem(polozka.name)}
+                      }
+                    >
+                      odebrat
+                    </button>
+                  </div>
                 </li>
               )
             )

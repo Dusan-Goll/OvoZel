@@ -15,27 +15,49 @@ function App() {
     setVyraz(e.target.value);
   }
 
-  function handleUpdateKosik(polozka) {
+  function handlePridejDoKosiku(polozka) {
     let nextZboziKosik;
 
-    if (zboziKosik.length === 0) {
+    if (!zboziKosik.some(zb => zb.name === polozka.name)) {
       polozka.pocet = 1;
-      nextZboziKosik = [polozka];
+      nextZboziKosik = [...zboziKosik, polozka];
     } else {
-
-      if (zboziKosik.some(zb => zb.name === polozka.name)) {
-        nextZboziKosik = zboziKosik.map(zbozi => {
-          if (zbozi.name === polozka.name) {
-            return {...zbozi, pocet: zbozi.pocet + 1};
-          } else {
-            return zbozi;
-          }
-        });
-      } else {
-        polozka.pocet = 1;
-        nextZboziKosik = [...zboziKosik, polozka];
-      }
+      nextZboziKosik = zboziKosik;
     }
+
+    setZboziKosik(nextZboziKosik);
+  }
+
+  function handleIncreaseQuantity(name, quantity) {
+    let nextZboziKosik = zboziKosik.map(zbozi => {
+
+      if (zbozi.name === name) {
+        return {...zbozi, pocet: quantity + 1}
+      } else {
+        return zbozi;
+      }
+    });
+
+    setZboziKosik(nextZboziKosik);
+  }
+
+  function handleDecreaseQuantity(name, quantity) {
+    let nextZboziKosik = zboziKosik.map(zbozi => {
+
+      if (zbozi.name === name && quantity > 1) {
+        return {...zbozi, pocet: quantity - 1}
+      } else {
+        return zbozi;
+      }
+    });
+
+    setZboziKosik(nextZboziKosik);
+  }
+
+  function handleDiscardItem(name) {
+    let nextZboziKosik = zboziKosik.filter(
+      zbozi => zbozi.name !== name
+    );
 
     setZboziKosik(nextZboziKosik);
   }
@@ -52,11 +74,16 @@ function App() {
           <FilteredList
             vyraz={vyraz}
             zbozi={seznamZbozi}
-            onUpdateKosik={handleUpdateKosik}
+            onPridejDoKosiku={handlePridejDoKosiku}
           />
         </div>
 
-        <Kosik vKosiku={zboziKosik} />
+        <Kosik
+          vKosiku={zboziKosik}
+          onIncreaseQuantity={handleIncreaseQuantity}
+          onDecreaseQuantity={handleDecreaseQuantity}
+          onDiscardItem={handleDiscardItem}
+        />
       </main>
     </>
   );

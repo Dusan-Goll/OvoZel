@@ -13,11 +13,20 @@ h1 {
 main {
   display: flex;
   flex-direction: column;
-  /* vetsi screeny-> flex-direction: row; */
   margin: 1rem;
 }
 
 .search-and-results {
   border: 2px dotted #000;
   padding: 0.5rem;
+}
+
+@media only screen and (min-width: 500px) {
+  main {
+    flex-direction: row;
+  }
+
+  .search-and-results {
+    margin-right: 1rem;
+  }
 }
