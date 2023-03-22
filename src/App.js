@@ -59,7 +59,15 @@ function App() {
   return (
     <>
       <header>
-        <h1>potraviny</h1>
+        <h1>potraviny u Gollů</h1>
+        <button id="nabidka">nabídka</button>
+        <button id="kosik">
+          <img
+            className="cart-icon" src="./img/svgs/cart.svg"
+            alt="ikonka nákupního košíku"
+          />
+          <div className="cisilko">2</div>
+        </button>
       </header>
 
       <main>
