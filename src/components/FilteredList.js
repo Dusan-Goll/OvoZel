@@ -21,6 +21,7 @@ export default function FilteredList({ vyraz, zbozi, onPridejDoKosiku }) {
               src={z.src}
               alt={z.alt}
             />
+            <p>cena/kus: {z.cost} kreditů</p>
             <button onClick={(e) => {onPridejDoKosiku(z)}}>
               přidat do košíku
             </button>
