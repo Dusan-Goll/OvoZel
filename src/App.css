@@ -3,6 +3,8 @@ header {
   color: #e9e9db;
   font-size: 2rem;
   height: 3em;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
