@@ -69,7 +69,7 @@ function App() {
             className="cart-icon" src="./img/svgs/cart.svg"
             alt="ikonka nákupního košíku"
           />
-          <div className="cisilko">2</div>
+          <div className="cisilko">{zboziKosik.length}</div>
         </button>
       </header>
 
