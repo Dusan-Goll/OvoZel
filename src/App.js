@@ -10,6 +10,7 @@ let seznamZbozi = Object.values(vseZbozi);
 function App() {
   const [vyraz, setVyraz] = useState('');
   const [zboziKosik, setZboziKosik] = useState([]);
+  const [status, setStatus] = useState('search');
 
   function handleChange(e) {
     setVyraz(e.target.value);
@@ -60,8 +61,10 @@ function App() {
     <>
       <header>
         <h1>potraviny u Gollů</h1>
-        <button id="nabidka">nabídka</button>
-        <button id="kosik">
+        <button id="nabidka" onClick={(e) => setStatus('search')}>
+          nabídka
+        </button>
+        <button id="kosik" onClick={(e) => setStatus('cart')}>
           <img
             className="cart-icon" src="./img/svgs/cart.svg"
             alt="ikonka nákupního košíku"
@@ -71,20 +74,23 @@ function App() {
       </header>
 
       <main>
-        <div className="search-and-results">
-          <Vyhledavani vyraz={vyraz} onHandleChange={handleChange}/>
-          <FilteredList
-            vyraz={vyraz}
-            zbozi={seznamZbozi}
-            onPridejDoKosiku={handlePridejDoKosiku}
+        {status === 'search' && (
+          <div className="search-and-results">
+            <Vyhledavani vyraz={vyraz} onHandleChange={handleChange}/>
+            <FilteredList
+              vyraz={vyraz}
+              zbozi={seznamZbozi}
+              onPridejDoKosiku={handlePridejDoKosiku}
+            />
+          </div>
+        )}
+        {status === 'cart' && (
+          <Kosik
+            vKosiku={zboziKosik}
+            onChangeQuantity={handleChangeQuantity}
+            onDiscardItem={handleDiscardItem}
           />
-        </div>
-
-        <Kosik
-          vKosiku={zboziKosik}
-          onChangeQuantity={handleChangeQuantity}
-          onDiscardItem={handleDiscardItem}
-        />
+        )}
       </main>
     </>
   );
