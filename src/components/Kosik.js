@@ -25,6 +25,7 @@ export default function Kosik({
           <h4>V košíku nemáte žádné zboží.</h4>
         ) : (
           <ul className='kosik-seznam'>
+            <li id="celkem">cena celkem: {total() + ' '}kreditů</li>
             {obsahKosiku.map(
               polozka => (
                 <li key={polozka.id} className="zbozi-v-kosiku">
@@ -69,7 +70,6 @@ export default function Kosik({
                 </li>
               )
             )}
-            <li id="celkem">cena celkem: {total() + ' '}kreditů</li>
           </ul>
         )
       }

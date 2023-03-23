@@ -5,7 +5,7 @@ export default function FilteredList({ vyraz, zbozi, onPridejDoKosiku }) {
 
   return (
     <ul className="filtered-list">
-      {vyraz !== '' && 
+      {
         zbozi.filter(
           polozka => (
             (polozka.name.toLowerCase().split(" ").some(
