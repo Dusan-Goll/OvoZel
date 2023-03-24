@@ -1,0 +1,59 @@
+header {
+  background-color: #107610;
+  color: #e9e9db;
+  font-size: 2rem;
+  height: 3em;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 2.5rem;
+  padding: 0.5em;
+}
+
+header button {
+  background-color: #e3d815;
+  border: 2px solid #000;
+  border-radius: 8px;
+  transition: all ease 0.3s;
+}
+
+header button:hover {
+  background-color: #dbd78d;
+  rotate: 8deg;
+  cursor: pointer;
+}
+
+#bid {
+  font-size: 1.2rem;
+  height: 2em;
+  padding: 0 0.5em;
+}
+
+#cart-button {
+  margin-right: 1rem;
+  padding: 0.3rem;
+  position: relative;
+}
+
+.cart-icon {
+  font-size: 1rem;
+  height: 3em;
+  width: 3em;
+}
+
+.red-number {
+  background-color: #ff0000;
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: 34px;
+  top: 37px;
+}

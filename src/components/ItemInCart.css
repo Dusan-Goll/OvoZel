@@ -1,0 +1,17 @@
+.cart-list {
+  padding-left: 0;
+}
+
+.cart-list li {
+  border: 1px dashed #595913;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.cart-list li h3 {
+  margin: 0.5rem;
+}
+
+.item-in-cart {
+  background-color: #cece51;
+}

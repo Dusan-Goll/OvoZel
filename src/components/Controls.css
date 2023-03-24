@@ -1,27 +1,3 @@
-.kosik {
-  margin-top: 1rem;
-  border: 2px dotted #000;
-  padding: 0.5rem;
-}
-
-.kosik-seznam {
-  padding-left: 0;
-}
-
-.kosik-seznam li {
-  border: 1px dashed #595913;
-  padding: 0.5rem;
-  margin: 0.5rem;
-}
-
-.kosik-seznam li h3 {
-  margin: 0.5rem;
-}
-
-.zbozi-v-kosiku {
-  background-color: #cece51;
-}
-
 .controls {
   display: flex;
   flex-direction: row;
@@ -53,4 +29,3 @@
   filter: brightness(1.3);
   cursor: pointer;
 }
-

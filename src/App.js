@@ -1,92 +1,73 @@
 import './App.css';
-import Vyhledavani from './components/Vyhledavani.js';
+import allGoods from './data/goods.js';
+
+import NavBar from './components/NavBar.js';
+import SearchBar from './components/SearchBar.js';
 import FilteredList from './components/FilteredList.js';
-import Kosik from './components/Kosik.js';
-import vseZbozi from './components/zbozi.js';
+import Cart from './components/Cart.js';
+
 import { useState } from 'react';
 
-let seznamZbozi = Object.values(vseZbozi);
+let goodsList = Object.values(allGoods);
 
-function App() {
-  const [vyraz, setVyraz] = useState('');
-  const [zboziKosik, setZboziKosik] = useState([]);
+
+export default function App() {
+  const [word, setWord] = useState('');
   const [status, setStatus] = useState('search');
+  const [cartItems, setCartItems] = useState([]);
 
-  function handleChange(e) {
-    setVyraz(e.target.value);
+  function handleStatusChange(e) {
+    setStatus(e.currentTarget.value);
   }
 
-  function handlePridejDoKosiku(polozka) {
-    let nextZboziKosik;
-
-    if (!zboziKosik.some(zb => zb.name === polozka.name)) {
-      polozka.pocet = 1;
-      nextZboziKosik = [...zboziKosik, polozka];
-    } else {
-      nextZboziKosik = zboziKosik;
-    }
-    setZboziKosik(nextZboziKosik);
+  function handleWordChange(e) {
+    setWord(e.target.value);
   }
 
-  function handleChangeQuantity(name, quantity, action) {
+  function handleAddToCart(itemToAdd) {
 
-    let newPocet;
-    if (action === '+') {
-      newPocet = quantity + 1;
-    } else if (action === '-' && quantity > 1) {
-      newPocet = quantity - 1;
-    } else {
-      newPocet = quantity;
+    if (!cartItems.some(item => item.name === itemToAdd.name)) {
+      setCartItems([...cartItems, {...itemToAdd, quantity: 1}]);
     }
+  }
 
-    let nextZboziKosik = zboziKosik.map(zbozi => {
+  function handleChangeQuantity(name, quantity, act) {
+    let q = quantity;
+    let newQuantity = (
+      act === '+'? q + 1 : (act === '-' && q > 1? q - 1 : q)
+    );
 
-      if (zbozi.name === name) {
-        return {...zbozi, pocet: newPocet}
-      } else {
-        return zbozi;
-      }
-    });
-    setZboziKosik(nextZboziKosik);
+    setCartItems(cartItems.map(item => (
+      item.name === name? {...item, quantity: newQuantity} : item
+    )));
   }
 
   function handleDiscardItem(name) {
-    let nextZboziKosik = zboziKosik.filter(
-      zbozi => zbozi.name !== name
-    );
-    setZboziKosik(nextZboziKosik);
+    setCartItems(cartItems.filter(item => item.name !== name));
   }
 
   return (
     <>
-      <header>
-        <h1>potraviny u Gollů</h1>
-        <button id="nabidka" onClick={(e) => setStatus('search')}>
-          nabídka
-        </button>
-        <button id="kosik" onClick={(e) => setStatus('cart')}>
-          <img
-            className="cart-icon" src="./img/svgs/cart.svg"
-            alt="ikonka nákupního košíku"
-          />
-          <div className="cisilko">{zboziKosik.length}</div>
-        </button>
-      </header>
+      <NavBar onStatusChange={handleStatusChange} cartItems={cartItems}/>
 
       <main>
         {status === 'search' && (
           <div className="search-and-results">
-            <Vyhledavani vyraz={vyraz} onHandleChange={handleChange}/>
+            <SearchBar
+              word={word}
+              onWordChange={handleWordChange}
+            />
             <FilteredList
-              vyraz={vyraz}
-              zbozi={seznamZbozi}
-              onPridejDoKosiku={handlePridejDoKosiku}
+              word={word}
+              goodsList={goodsList}
+              onAddToCart={handleAddToCart}
             />
           </div>
         )}
+        
         {status === 'cart' && (
-          <Kosik
-            vKosiku={zboziKosik}
+          <Cart
+            cartItems={cartItems}
             onChangeQuantity={handleChangeQuantity}
             onDiscardItem={handleDiscardItem}
           />
@@ -95,5 +76,3 @@ function App() {
     </>
   );
 }
-
-export default App;

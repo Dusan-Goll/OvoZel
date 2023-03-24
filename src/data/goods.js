@@ -1,4 +1,4 @@
-const vseZbozi = {
+const allGoods = {
   paprikaCervena: {
     name: "Paprika červená",
     id: 0,
@@ -113,4 +113,4 @@ const vseZbozi = {
   },
 };
 
-export default vseZbozi;
+export default allGoods;

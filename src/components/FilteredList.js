@@ -1,33 +1,30 @@
 import './FilteredList.css';
+import FilteredItem from './FilteredItem.js';
 
-export default function FilteredList({ vyraz, zbozi, onPridejDoKosiku }) {
-  let lowVyraz = vyraz.toLowerCase();
+function FilteredList({ word, goodsList, onAddToCart }) {
+  let lowerCased = word.toLowerCase();
 
   return (
     <ul className="filtered-list">
       {
-        zbozi.filter(
-          polozka => (
-            (polozka.name.toLowerCase().split(" ").some(
-              word => word.startsWith(lowVyraz)
-            )) || polozka.name.toLowerCase().startsWith(lowVyraz)
+        goodsList.filter(
+          item => (
+            item.name.toLowerCase().startsWith(lowerCased) ||
+            item.name.toLowerCase().split(" ").some(wordPart => (
+              wordPart.startsWith(lowerCased)
+            ))
           )
         )
-        .map(z => (
-          <li key={z.id} className="predmet-seznamu">
-            <h3>{z.name}</h3>
-            <img
-              className="obrazek-zbozi"
-              src={z.src}
-              alt={z.alt}
-            />
-            <p>cena/kus: {z.cost} kreditů</p>
-            <button onClick={(e) => {onPridejDoKosiku(z)}}>
-              přidat do košíku
-            </button>
-          </li>
+        .map(filteredItem => (
+          <FilteredItem
+            key={filteredItem.id}
+            ware={filteredItem}
+            onAddToCart={onAddToCart}
+          />
         ))
       }
     </ul>
   );
 }
+
+export default FilteredList;

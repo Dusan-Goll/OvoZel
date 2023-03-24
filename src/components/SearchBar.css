@@ -1,0 +1,10 @@
+#search-bar {
+  padding: 0.5rem;
+  background-color: #add8e6;
+}
+
+#search-field {
+  font-size: 1rem;
+  background-color: #e3d815;
+  border: 2px solid #000;
+}
