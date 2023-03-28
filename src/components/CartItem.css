@@ -46,7 +46,7 @@
   margin-block-end: 0.5em;
 }
 
-/* Tablet & Desktop styles */
+/* picture enlarging */
 @media only screen and (min-width: 380px) {
   .cart-list li .ware-picture {
     height: 100px;

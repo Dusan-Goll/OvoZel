@@ -8,12 +8,19 @@ header {
   justify-content: space-between;
 }
 
+@media only screen and (min-width: 540px) {
+  header {
+    justify-content: space-evenly;
+  }
+}
+
 h1 {
   font-size: 2rem;
   padding: 0.2em;
   margin: 0.2em;
 }
 
+/* buttons */
 header .nav-buttons {
   display: flex;
   align-items: center;
@@ -60,12 +67,7 @@ header button:active {
   top: 37px;
 }
 
-@media only screen and (min-width: 540px) {
-  header {
-    justify-content: space-evenly;
-  }
-}
-
+/* hover styles */
 @media only screen and (hover: hover) {
   header button:hover {
     color: var(--dark-spring-green);

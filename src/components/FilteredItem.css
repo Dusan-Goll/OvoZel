@@ -46,10 +46,6 @@
   filter: saturate(200%);
 }
 
-.bold {
-  font-weight: bold;
-}
-
 @media only screen and (hover: hover) {
   .filtered-list-item button:hover {
     color: var(--dark-spring-green);
