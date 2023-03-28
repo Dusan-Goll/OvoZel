@@ -1,19 +1,21 @@
-import './ItemInCart.css';
+import './CartItem.css';
 import Controls from './Controls.js';
 
-function ItemInCart({ ware, onChangeQuantity, onDiscardItem }) {
+function CartItem({ ware, onChangeQuantity, onDiscardItem }) {
   return (
     <li className="item-in-cart">
-      <h3>{ware.name}</h3>
-  
       <img
         className="ware-picture"
         src={ware.src}
         alt={ware.alt}
       />
 
-      <p>cena/kus: {ware.cost} kreditů</p>
-      <p>cena: {ware.cost * ware.quantity} kreditů</p>
+      <div className="description">
+        <h3>{ware.name}</h3>
+
+        <p>cena za ks: {ware.cost},-</p>
+        <p>cena: {ware.cost * ware.quantity},-</p>
+      </div>
 
       <Controls 
         ware={ware}
@@ -24,4 +26,4 @@ function ItemInCart({ ware, onChangeQuantity, onDiscardItem }) {
   );
 }
 
-export default ItemInCart;
+export default CartItem;

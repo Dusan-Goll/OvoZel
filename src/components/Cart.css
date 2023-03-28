@@ -1,5 +1,21 @@
 .cart {
-  margin-top: 1rem;
-  border: 2px dotted #000;
+  width: 100%;
   padding: 0.5rem;
+  margin: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart > * {
+  width: 100%;
+}
+
+.cart h2 {
+  margin-block-end: 0.5rem;
+}
+
+@media only screen and (min-width: 540px) {
+  .cart {
+    width: 490px;
+  }
 }

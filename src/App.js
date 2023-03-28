@@ -47,10 +47,10 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="page">
       <NavBar onStatusChange={handleStatusChange} cartItems={cartItems}/>
 
-      <main>
+      <main className="section">
         {status === 'search' && (
           <div className="search-and-results">
             <SearchBar
@@ -60,6 +60,7 @@ export default function App() {
             <FilteredList
               word={word}
               goodsList={goodsList}
+              cartItems={cartItems}
               onAddToCart={handleAddToCart}
             />
           </div>
@@ -73,6 +74,6 @@ export default function App() {
           />
         )}
       </main>
-    </>
+    </div>
   );
 }

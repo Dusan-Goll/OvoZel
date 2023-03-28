@@ -1,6 +1,6 @@
 import './FilteredItem.css';
 
-function FilteredItem({ ware, onAddToCart  }) {
+function FilteredItem({ ware, onAddToCart, cartItems }) {
   return (
     <li className="filtered-list-item">
       <h3>{ware.name}</h3>
@@ -11,11 +11,18 @@ function FilteredItem({ ware, onAddToCart  }) {
         alt={ware.alt}
       />
 
-      <p>cena/kus: {ware.cost} kreditů</p>
+      <p>cena: <span className="bold">{ware.cost},-</span> za ks</p>
 
-      <button onClick={(e) => {onAddToCart(ware)}}>
-        přidat do košíku
-      </button>
+      {
+        (
+          cartItems.length === 0 ||
+          !cartItems.some(item => item.name === ware.name)
+        ) ? (
+          <button onClick={(e) => onAddToCart(ware)}>
+            přidat do košíku
+          </button>
+        ) : (<p>Zboží již máte v košíku.</p>)
+      }
     </li>
   );
 }

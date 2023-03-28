@@ -9,7 +9,7 @@ function SearchBar({ word, onWordChange }) {
         <input
           id="search-field"
           type="text"
-          placeholder="např. citrón, česnek ..."
+          placeholder="např. jablko, petržel ..."
           value={word}
           onChange={onWordChange}
         />

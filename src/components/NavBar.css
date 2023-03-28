@@ -1,44 +1,46 @@
 header {
-  background-color: #107610;
+  background-color: var(--dark-spring-green);
   color: #e9e9db;
   font-size: 2rem;
   height: 3em;
   position: sticky;
   top: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
 }
 
 h1 {
-  font-size: 2.5rem;
-  padding: 0.5em;
+  font-size: 2rem;
+  padding: 0.2em;
+  margin: 0.2em;
+}
+
+header .nav-buttons {
+  display: flex;
+  align-items: center;
 }
 
 header button {
-  background-color: #e3d815;
-  border: 2px solid #000;
+  background-color: var(--citrine);
+  font-size: 1rem;
+  margin: 0.5em;
+  border: 2px solid var(--dark-spring-green);
   border-radius: 8px;
-  transition: all ease 0.3s;
+  transition: all ease 0.4s;
 }
 
-header button:hover {
-  background-color: #dbd78d;
-  rotate: 8deg;
-  cursor: pointer;
-}
-
-#bid {
-  font-size: 1.2rem;
-  height: 2em;
+#bid-button {
+  height: 2.5em;
   padding: 0 0.5em;
 }
 
 #cart-button {
-  margin-right: 1rem;
   padding: 0.3rem;
   position: relative;
+}
+
+header button:active {
+  rotate: 12deg;
+  filter: saturate(30%);
 }
 
 .cart-icon {
@@ -56,4 +58,20 @@ header button:hover {
   position: absolute;
   left: 34px;
   top: 37px;
+}
+
+@media only screen and (min-width: 540px) {
+  header {
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (hover: hover) {
+  header button:hover {
+    color: var(--dark-spring-green);
+    border-color: #085112;
+    background-color: var(--light-green);
+    cursor: pointer;
+    transform: rotate(-4deg);
+  }
 }

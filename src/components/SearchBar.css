@@ -1,10 +1,16 @@
 #search-bar {
+  background-color: var(--brown-sugar);
   padding: 0.5rem;
-  background-color: #add8e6;
+  margin-block-end: 1rem;
+  border-radius: 5px;
 }
 
 #search-field {
+  background-color: var(--citrine);
   font-size: 1rem;
-  background-color: #e3d815;
-  border: 2px solid #000;
+  height: 2em;
+  width: 75%;
+  padding-inline-start: 0.5em;
+  border: 0px solid #000;
+  border-radius: 4px;
 }

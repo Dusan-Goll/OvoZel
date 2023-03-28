@@ -3,21 +3,24 @@ import './Controls.css';
 function Controls({ ware, onChangeQuantity, onDiscardItem }) {
   return (
     <div className="controls">
-      <button onClick={(e) => {
+      <div className="count">{ware.quantity}ks</div>
+
+      <button className="decrease-btn" onClick={(e) => {
         onChangeQuantity(ware.name, ware.quantity, '-')
       }}>
         -
       </button>
 
-      <p>{ware.quantity}ks</p>
-
-      <button value={'+'} onClick={(e) => {
+      <button className="increase-btn" onClick={(e) => {
         onChangeQuantity(ware.name, ware.quantity, '+')
       }}>
         +
       </button>
 
-      <button onClick={(e) => {onDiscardItem(ware.name)}}>
+      <button
+        className="discard-btn"
+        onClick={(e) => {onDiscardItem(ware.name)}}
+      >
         odebrat
       </button>
     </div>

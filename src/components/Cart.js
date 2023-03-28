@@ -1,5 +1,5 @@
 import './Cart.css';
-import ItemInCart from './ItemInCart';
+import CartItem from './CartItem.js';
 
 function Cart({ cartItems, onChangeQuantity, onDiscardItem}) {
 
@@ -18,10 +18,12 @@ function Cart({ cartItems, onChangeQuantity, onDiscardItem}) {
 
       {cartItems.length > 0 && (
         <ul className='cart-list'>
-          <li id="celkem">cena celkem: {total() + ' '}kreditů</li>
+          <li id="total-counter">
+            cena celkem: <span className="bold">{total() + ' '},-</span>
+          </li>
 
           {cartItems.map(item => (
-            <ItemInCart 
+            <CartItem 
               key={item.id}
               ware={item}
               onChangeQuantity={onChangeQuantity}

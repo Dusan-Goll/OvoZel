@@ -1,7 +1,7 @@
 import './FilteredList.css';
 import FilteredItem from './FilteredItem.js';
 
-function FilteredList({ word, goodsList, onAddToCart }) {
+function FilteredList({ word, goodsList, onAddToCart, cartItems }) {
   let lowerCased = word.toLowerCase();
 
   return (
@@ -20,6 +20,7 @@ function FilteredList({ word, goodsList, onAddToCart }) {
             key={filteredItem.id}
             ware={filteredItem}
             onAddToCart={onAddToCart}
+            cartItems={cartItems}
           />
         ))
       }
