@@ -1,7 +1,7 @@
 # OvoZel 🍋🥕🛒
 
 - fruits & vegetables online shopping simulation
-- You can open it here: [OvoZel](https://.....link-to-the-web-page).  
+- You can open it here: [OvoZel](https://dusan-goll.github.io/OvoZel/).  
 
 ## Description  
 
