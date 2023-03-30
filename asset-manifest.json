@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ovozel/static/css/main.ff5c5ce4.css",
-    "main.js": "/ovozel/static/js/main.e346aee7.js",
-    "static/js/787.e87efed9.chunk.js": "/ovozel/static/js/787.e87efed9.chunk.js",
-    "index.html": "/ovozel/index.html",
-    "main.ff5c5ce4.css.map": "/ovozel/static/css/main.ff5c5ce4.css.map",
-    "main.e346aee7.js.map": "/ovozel/static/js/main.e346aee7.js.map",
-    "787.e87efed9.chunk.js.map": "/ovozel/static/js/787.e87efed9.chunk.js.map"
+    "main.css": "/OvoZel/static/css/main.ff5c5ce4.css",
+    "main.js": "/OvoZel/static/js/main.a6ddf851.js",
+    "static/js/787.e87efed9.chunk.js": "/OvoZel/static/js/787.e87efed9.chunk.js",
+    "index.html": "/OvoZel/index.html",
+    "main.ff5c5ce4.css.map": "/OvoZel/static/css/main.ff5c5ce4.css.map",
+    "main.a6ddf851.js.map": "/OvoZel/static/js/main.a6ddf851.js.map",
+    "787.e87efed9.chunk.js.map": "/OvoZel/static/js/787.e87efed9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff5c5ce4.css",
-    "static/js/main.e346aee7.js"
+    "static/js/main.a6ddf851.js"
   ]
 }
