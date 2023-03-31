@@ -12,7 +12,7 @@ export default function NavBar({ onStatusChange, cartItems }) {
         
         <button id="cart-button" value="cart" onClick={onStatusChange}>
           <img
-            className="cart-icon" src="./OvoZel/img/svgs/cart.svg"
+            className="cart-icon" src="./img/svgs/cart.svg"
             alt="ikonka nákupního košíku"
           />
           <div className="red-number">{cartItems.length}</div>
